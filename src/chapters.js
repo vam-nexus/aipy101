@@ -630,14 +630,14 @@ print(f"There are {days_between} days between Christmas and your birthday.")</st
 
                         <section class="post-section">
                             <h2>Editing Code Cells</h2>
-                            <p>Use ChatGPT to modify the code in the cell under <strong>"## Poem Code"</strong>. After editing, paste the updated code back into the cell and execute it. 
-                            For example, you might prompt ChatGPT with the following: <pre><code class="language-python"><strong>"Modify the code in this cell to print a poem instead of 'hello world'."</strong></code></pre></p>
+                            <p>Use ChatGPT to create a poem code in Google Colab. After the code is created, paste the updated code back into the cell and execute it. 
+                            For example, you might prompt ChatGPT with the following: <pre><code class="language-python"><strong>"Create python code to print a poem."</strong></code></pre></p>
                             <p>You might get a poem like this: <pre><code class="language-python">print("Twinkle, twinkle, little star,
 How I wonder what you are!
 Up above the world so high,
 Like a diamond in the sky.")
 </code></pre></p>
-                            <p style="background: #F3F4F6; padding: 0.5rem; border-radius: 0.25rem;">Copy the python code with the poem from ChatGPT and paste it back into the cell under "## Poem Code" and execute it. <strong>"## Another Code that Doesn't Work :( :( "</strong> which has an error in order to debug it, and then run it</p>
+                            <p style="background: #F3F4F6; padding: 0.5rem; border-radius: 0.25rem;">Copy the python code with the poem from ChatGPT and paste it back into the Google Colaband execute it. </p>
                         </section>
 
                         <section class="post-section">
