@@ -834,10 +834,7 @@ print(calculate_average(my_list))
                                 <li>Try different approaches to fix the issue</li>
                                 <li>Ask the chatbot for help when needed</li>
                             </ul>
-                            <p style="background: #F3F4F6; padding: 0.5rem; border-radius: 0.25rem;">Apply these 3 steps to the code block under <strong>"## Another Code that Doesn't Work :( :( "</strong> which has an error in order to debug it, and then run it</p>
-                            <div style="text-align: center; margin-top: 1rem;">
-                                <a href="https://colab.research.google.com/drive/1LEav6Yxcx5j_cb48KzfJQ1QF1zQESTKb?usp=sharing" target="_blank" style="display: inline-block; padding: 0.5rem 1rem; background-color: #4285F4; color: white; text-decoration: none; border-radius: 0.25rem;">Google Colab</a>
-                            </div>
+                          
                         </section>
                         <section class="post-section">
                             <h2>Complete Practice Exercises</h2>
