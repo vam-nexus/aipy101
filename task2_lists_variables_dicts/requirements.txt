@@ -1,0 +1,3 @@
+# Task 2 - Lists, Variables & Dicts
+# No external dependencies required
+# This task uses only Python built-in data structures and functions

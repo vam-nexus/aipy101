@@ -1,0 +1,3 @@
+# Task 5 - Find Next Prime
+# No external dependencies required
+# This task uses only Python built-in functions and mathematical operations

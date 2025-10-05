@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Todo Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #eee;
+        }
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        .todo-section, .chat-section {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .add-todo {
+            margin-bottom: 20px;
+        }
+        .add-todo form {
+            display: flex;
+            gap: 10px;
+        }
+        .add-todo input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .add-todo button {
+            padding: 10px 20px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .add-todo button:hover {
+            background: #45a049;
+        }
+        .todo-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            margin: 10px 0;
+            background: white;
+            border-radius: 5px;
+            border-left: 4px solid #4CAF50;
+        }
+        .todo-item.completed {
+            background: #e8f5e8;
+            border-left-color: #2e7d32;
+        }
+        .todo-item.completed .todo-text {
+            text-decoration: line-through;
+            color: #666;
+        }
+        .todo-text {
+            flex: 1;
+            margin: 0 15px;
+        }
+        .todo-actions {
+            display: flex;
+            gap: 10px;
+        }
+        .btn {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        .btn-toggle {
+            background: #2196F3;
+            color: white;
+        }
+        .btn-toggle:hover {
+            background: #1976D2;
+        }
+        .btn-delete {
+            background: #f44336;
+            color: white;
+        }
+        .btn-delete:hover {
+            background: #d32f2f;
+        }
+        .logout-btn {
+            background: #ff9800;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .logout-btn:hover {
+            background: #f57c00;
+        }
+        .empty-state {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+            margin: 20px 0;
+        }
+        .chat-container {
+            height: 400px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            background: white;
+            margin-bottom: 15px;
+        }
+        .chat-message {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .chat-message.user {
+            background: #e3f2fd;
+            text-align: right;
+        }
+        .chat-message.bot {
+            background: #f1f8e9;
+        }
+        .chat-input {
+            display: flex;
+            gap: 10px;
+        }
+        .chat-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .chat-input button {
+            padding: 10px 20px;
+            background: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .chat-input button:hover {
+            background: #1976D2;
+        }
+        .chat-input button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome, {{ username }}!</h1>
+        <a href="/logout" class="logout-btn">Logout</a>
+    </div>
+
+    <div class="main-content">
+        <div class="todo-section">
+            <h2>📝 My Tasks</h2>
+            
+            <div class="add-todo">
+                <form method="POST" action="/add_todo">
+                    <input type="text" name="task" placeholder="Add a new task..." required>
+                    <button type="submit">Add Task</button>
+                </form>
+            </div>
+
+            <div class="todos">
+                {% if todos %}
+                    {% for todo in todos %}
+                        <div class="todo-item {% if todo.completed %}completed{% endif %}">
+                            <div class="todo-text">{{ todo.task }}</div>
+                            <div class="todo-actions">
+                                <a href="/toggle_todo/{{ todo.id }}" class="btn btn-toggle">
+                                    {% if todo.completed %}Undo{% else %}Complete{% endif %}
+                                </a>
+                                <a href="/delete_todo/{{ todo.id }}" class="btn btn-delete">Delete</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="empty-state">
+                        <p>No tasks yet. Add your first task above!</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="chat-section">
+            <h2>🤖 AI Assistant</h2>
+            
+            <div class="chat-container" id="chatContainer">
+                {% if chat_history %}
+                    {% for message in chat_history %}
+                        <div class="chat-message user">
+                            <strong>You:</strong> {{ message.user }}
+                        </div>
+                        <div class="chat-message bot">
+                            <strong>AI:</strong> {{ message.bot }}
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="empty-state">
+                        <p>Ask me anything about your tasks or get help!</p>
+                    </div>
+                {% endif %}
+            </div>
+            
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Ask me about your tasks..." onkeypress="handleKeyPress(event)">
+                <button onclick="sendMessage()" id="sendBtn">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (!message) return;
+            
+            const sendBtn = document.getElementById('sendBtn');
+            const chatContainer = document.getElementById('chatContainer');
+            
+            // Disable input and show loading
+            input.disabled = true;
+            sendBtn.disabled = true;
+            sendBtn.textContent = 'Sending...';
+            
+            // Add user message to chat
+            addMessageToChat('user', message);
+            input.value = '';
+            
+            // Send to server
+            fetch('/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({message: message})
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    addMessageToChat('bot', 'Sorry, there was an error: ' + data.error);
+                } else {
+                    addMessageToChat('bot', data.response);
+                }
+            })
+            .catch(error => {
+                addMessageToChat('bot', 'Sorry, I\'m having trouble responding right now.');
+            })
+            .finally(() => {
+                // Re-enable input
+                input.disabled = false;
+                sendBtn.disabled = false;
+                sendBtn.textContent = 'Send';
+                input.focus();
+            });
+        }
+        
+        function addMessageToChat(sender, message) {
+            const chatContainer = document.getElementById('chatContainer');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `chat-message ${sender}`;
+            
+            const senderLabel = sender === 'user' ? 'You' : 'AI';
+            messageDiv.innerHTML = `<strong>${senderLabel}:</strong> ${message}`;
+            
+            chatContainer.appendChild(messageDiv);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+        
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+        
+        // Focus on chat input when page loads
+        document.getElementById('chatInput').focus();
+    </script>
+</body>
+</html>

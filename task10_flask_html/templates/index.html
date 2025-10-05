@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ title }}</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        input {
+            padding: 8px;
+            font-size: 16px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ title }}</h1>
+    <p>{{ message }}</p>
+    
+    <div>
+        <input type="number" id="numberInput" placeholder="Enter a number" value="10">
+        <button onclick="findNextPrime()">Find Next Prime</button>
+    </div>
+    
+    <div id="result"></div>
+    
+    <script>
+        function findNextPrime() {
+            const number = parseInt(document.getElementById('numberInput').value);
+            if (isNaN(number)) {
+                document.getElementById('result').innerHTML = '<p style="color: red;">Please enter a valid number!</p>';
+                return;
+            }
+            
+            // Simple prime checking function
+            function isPrime(n) {
+                if (n < 2) return false;
+                for (let i = 2; i <= Math.sqrt(n); i++) {
+                    if (n % i === 0) return false;
+                }
+                return true;
+            }
+            
+            // Find next prime
+            let next = number + 1;
+            while (!isPrime(next)) {
+                next++;
+            }
+            
+            document.getElementById('result').innerHTML = 
+                `<p style="color: green; font-size: 18px;">Next prime after ${number} is: <strong>${next}</strong></p>`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,2 @@
+# Task 10 - Flask + HTML Integration
+Flask>=2.0.0

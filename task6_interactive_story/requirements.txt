@@ -1,0 +1,3 @@
+# Task 6 - Interactive Story
+# No external dependencies required
+# This task uses only Python built-in functions for input/output and file operations

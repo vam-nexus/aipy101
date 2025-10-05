@@ -1,0 +1,5 @@
+# Task 13 - Flask Chatbot Integration
+Flask>=2.0.0
+python-dotenv>=1.0.0
+together>=0.2.0
+requests>=2.28.0

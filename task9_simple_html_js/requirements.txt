@@ -1,0 +1,4 @@
+# Task 8 - Simple HTML + JS
+# No external dependencies required
+# This task uses only HTML, CSS, and JavaScript (no Python packages needed)
+# Just open the HTML files in a web browser

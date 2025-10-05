@@ -1,0 +1,2 @@
+# Task 12 - Flask Todo List
+Flask>=2.0.0

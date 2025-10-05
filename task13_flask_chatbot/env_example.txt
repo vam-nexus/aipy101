@@ -1,0 +1,4 @@
+# Task 13 - Flask Chatbot Integration Environment Variables
+# Copy this file to .env and add your actual API key
+
+TOGETHER_API_KEY=your_together_api_key_here

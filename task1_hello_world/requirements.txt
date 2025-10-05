@@ -1,0 +1,3 @@
+# Task 1 - Hello World
+# No external dependencies required
+# This task uses only Python built-in functions
