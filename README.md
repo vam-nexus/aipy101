@@ -60,7 +60,9 @@ This course covers Python programming fundamentals through hands-on projects, pr
 
 ### Task 14 - Content Management Demo
 **Example**: Complete content management system with user roles
-**Challenge**: Prepare demo presentation and create process flow for your app
+**Challenge**: Prepare demo presentation 
+- create process flow for your app (https://docs.google.com/presentation/d/1STarumzU-MNgkSrhu4efd6GwUGGQgzwXrdDZncy4PoM/edit?usp=sharing)
+- create a flask app that has the content management system for your app
 
 ## Getting Started
 
