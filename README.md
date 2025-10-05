@@ -1,5 +1,13 @@
 # AI Python 101 - Course Tasks
 
+## Usage
+
+```bash
+git clone git@github.com:vam-nexus/aipy101.git
+pip install -r requirements.txt
+python task01_hello_world/example.py
+```
+
 ## Task Overview
 
 This course covers Python programming fundamentals through hands-on projects, progressing from basic concepts to advanced web applications with AI integration.
