@@ -28,13 +28,13 @@ print("Basic plot saved as 'outputs/basic_plot.jpg'")
 # Create a plot with customizations (Uncomment Below)
 # -------------------------------------------
 # plt.figure(figsize=(10, 6))
-# plt.plot(x, y, label='sin(x)', color='blue', linewidth=2)
-# plt.xlabel('X values')
-# plt.ylabel('Y values')
-# plt.title('Sine Wave Function')
+# plt.plot(x, y, label="sin(x)", color="blue", linewidth=2)
+# plt.xlabel("X values")
+# plt.ylabel("Y values")
+# plt.title("Sine Wave Function")
 # plt.legend()
 # plt.grid(True, alpha=0.3)
-# plt.savefig('outputs/customized_plot.jpg')
+# plt.savefig("outputs/customized_plot.jpg")
 # plt.close()
 # print("Customized plot saved as 'outputs/customized_plot.jpg'")
 
@@ -91,32 +91,4 @@ print("Basic plot saved as 'outputs/basic_plot.jpg'")
 # # Save the plot
 # plt.savefig('outputs/trigonometric_plot.jpg', dpi=300, bbox_inches='tight')
 # print("Plot saved as 'outputs/trigonometric_plot.jpg'")
-# plt.close()
-
-# Advanced customization (Uncomment Below)
-# -------------------------------------------
-# fig, ax = plt.subplots(figsize=(12, 8))
-#
-# # Create multiple lines with different styles
-# ax.plot(x, np.sin(x), 'b-', linewidth=2, label='sin(x)')
-# ax.plot(x, np.cos(x), 'r--', linewidth=2, label='cos(x)')
-# ax.plot(x, np.sin(x) * np.cos(x), 'g:', linewidth=3, label='sin(x) * cos(x)')
-#
-# # Customize the plot
-# ax.set_xlabel('X values', fontsize=12)
-# ax.set_ylabel('Y values', fontsize=12)
-# ax.set_title('Advanced Trigonometric Functions', fontsize=14, fontweight='bold')
-# ax.legend(fontsize=10)
-# ax.grid(True, alpha=0.3)
-# ax.set_xlim(0, 10)
-# ax.set_ylim(-1.5, 1.5)
-#
-# # Add text annotation
-# ax.annotate('Maximum of sin(x)', xy=(np.pi/2, 1), xytext=(np.pi/2 + 1, 1.2),
-#             arrowprops=dict(arrowstyle='->', color='black'),
-#             fontsize=10)
-#
-# plt.tight_layout()
-# plt.savefig('outputs/advanced_plot.jpg', dpi=300, bbox_inches='tight')
-# print("Advanced plot saved as 'outputs/advanced_plot.jpg'")
 # plt.close()

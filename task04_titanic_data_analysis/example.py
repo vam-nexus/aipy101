@@ -27,44 +27,44 @@ print(titanic_data.head())
 
 # Basic data analysis (Uncomment Below)
 # -------------------------------------------
-# print("\nDataset info:")
-# print(titanic_data.info())
-#
-# print("\nBasic statistics:")
-# print(titanic_data.describe())
-#
-# print("\nSurvival rate overall:")
-# overall_survival = titanic_data["Survived"].mean()
-# print(f"Overall survival rate: {overall_survival:.2%}")
+print("\nDataset info:")
+print(titanic_data.info())
+
+print("\nBasic statistics:")
+print(titanic_data.describe())
+
+print("\nSurvival rate overall:")
+overall_survival = titanic_data["Survived"].mean()
+print(f"Overall survival rate: {overall_survival:.2%}")
 
 # Calculate survival rate by gender (Uncomment Below)
 # -------------------------------------------
-# survival_by_gender = titanic_data.groupby("Sex")["Survived"].mean()
-# print("\nSurvival rate by gender:")
-# print(survival_by_gender)
+survival_by_gender = titanic_data.groupby("Sex")["Survived"].mean()
+print("\nSurvival rate by gender:")
+print(survival_by_gender)
 
 # Calculate survival rate by passenger class (Uncomment Below)
 # -------------------------------------------
-# survival_by_class = titanic_data.groupby("Pclass")["Survived"].mean()
-# print("\nSurvival rate by passenger class:")
-# print(survival_by_class)
+survival_by_class = titanic_data.groupby("Pclass")["Survived"].mean()
+print("\nSurvival rate by passenger class:")
+print(survival_by_class)
 
 # Calculate average age of survivors and non-survivors (Uncomment Below)
 # -------------------------------------------
-# avg_age = titanic_data.groupby("Survived")["Age"].mean()
-# print("\nAverage age by survival status:")
-# print(avg_age)
+avg_age = titanic_data.groupby("Survived")["Age"].mean()
+print("\nAverage age by survival status:")
+print(avg_age)
 
 # Create basic visualizations (Uncomment Below)
 # -------------------------------------------
 # # Bar chart of survival rate by gender
-# survival_by_gender.plot(kind="bar", title="Survival Rate by Gender")
-# plt.ylabel("Survival Rate")
-# plt.xticks(rotation=0)
-# plt.tight_layout()
-# plt.savefig("outputs/survival_by_gender.jpg")
-# plt.close()
-# print("Saved: outputs/survival_by_gender.jpg")
+survival_by_gender.plot(kind="bar", title="Survival Rate by Gender")
+plt.ylabel("Survival Rate")
+plt.xticks(rotation=0)
+plt.tight_layout()
+plt.savefig("outputs/survival_by_gender.jpg")
+plt.close()
+print("Saved: outputs/survival_by_gender.jpg")
 
 # Bar chart of survival rate by passenger class (Uncomment Below)
 # -------------------------------------------
