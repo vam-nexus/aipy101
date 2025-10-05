@@ -1,0 +1,2 @@
+# Task 11 - Flask Login & History
+Flask>=2.0.0
